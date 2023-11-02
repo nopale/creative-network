@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html,
+body {
+  margin: 0;
+  background-color: black;
+}
+
+body,
+p, input {
+  font-family: var(--font-pier);
+  font-style: normal;
+  color: white;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-pier);
+  font-style: normal;
+  color: white;
+}
+
+button {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: black;
+  padding: 12px 20px;
+  font-size: 12px;
+  margin: 0;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  color: white;
+}

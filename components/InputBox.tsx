@@ -1,6 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import { useAuthContext } from '@/context/AuthContext'
-import { CameraIcon } from '@heroicons/react/20/solid'
+import {
+  CameraIcon,
+  LinkIcon,
+  MapPinIcon,
+  PlusCircleIcon,
+  RectangleGroupIcon,
+} from '@heroicons/react/20/solid'
 import React, {
   ButtonHTMLAttributes,
   MouseEventHandler,
@@ -25,6 +31,7 @@ import {
   uploadBytesResumable,
 } from 'firebase/storage'
 import app from '@/firebase/config'
+import { neueWorld, pierSans } from '@/fonts/fonts'
 // import { FieldValue } from '@google-cloud/firestore'
 
 function InputBox() {
@@ -105,50 +112,61 @@ function InputBox() {
   }
 
   return (
-    <div className="bg-white p-2 rounded-2xl shadow-md font-medium text-gray-500 mt-6">
-      <div className="flex space-x-4 p-4 items-center">
-        <Image src={userData.photo} width={40} height={40} alt="user-image" />
-        <form className="flex flex-1">
-          <input
-            ref={inputRef}
-            className="rounded-full h-12 bg-gray-100 flex-grow px-5 focus:outline-none"
-            type="text"
-            placeholder="what's on your mind?"
-          />
-        </form>
-        <button type="submit" onClick={sendPost}>
-          post
-        </button>
+    <div className='px-5'>
+      <div className="relative border-t border-white border-solid mb-6 mx-6">
+        <div className="bg-[#d9d9d9]/[0.2] p-4 rounded-[5px] shadow-md font-medium text-white mt-6 ">
+          <div className="flex space-x-4 pb-4 items-center">
+            <form className="flex flex-1">
+              <input
+                ref={inputRef}
+                className={`${pierSans.className} text-white h-12 bg-transparent flex-grow focus:outline-none text-[32px]`}
+                type="text"
+                placeholder="What's on your mind?"
+              />
+            </form>
+            <button type="submit" onClick={sendPost}>
+              post
+            </button>
 
-        {imageToPost && (
-          <div className="flex flex-col filter hover:brightness-110 transition duration-150 transform hover:scale-105 cursor:pointer">
-            <img
-              className="h-10 object-contain "
-              src={imageToPost}
-              alt="post-image"
-            />
-            <p
-              onClick={removeImage}
-              className="text-xs text-red-500 text-center"
-            >
-              remove
-            </p>
+            {imageToPost && (
+              <div className="flex flex-col filter hover:brightness-110 transition duration-150 transform hover:scale-105 cursor:pointer">
+                <img
+                  className="h-10 object-contain "
+                  src={imageToPost}
+                  alt="post-image"
+                />
+                <p
+                  onClick={removeImage}
+                  className="text-xs text-red-500 text-center"
+                >
+                  remove
+                </p>
+              </div>
+            )}
           </div>
-        )}
-      </div>
 
-      <div>
-        <div>
-          <p></p>
-        </div>
-        <div className="flex items-center">
-          <CameraIcon className="h-6 mr-2" />
-          <input
-            ref={filepickerRef}
-            onChange={addImageToPost}
-            type="file"
-            placeholder="upload"
-          />
+          <div>
+            <div>
+              <p></p>
+            </div>
+            <div className="flex items-center">
+              <PlusCircleIcon
+                className="text-white h-6 mr-3"
+                onClick={() => filepickerRef.current.click()}
+              />
+              <LinkIcon className="text-white h-5 mr-3 rotate-45" />
+              <MapPinIcon className="text-white h-5 mr-3 " />
+              <RectangleGroupIcon className="text-white h-5 mr-3 " />
+              <input
+                className="opacity-0"
+                ref={filepickerRef}
+                onChange={addImageToPost}
+                hidden
+                type="file"
+                placeholder="upload"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
