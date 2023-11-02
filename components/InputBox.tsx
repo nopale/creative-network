@@ -112,14 +112,14 @@ function InputBox() {
   }
 
   return (
-    <div className='px-5'>
-      <div className="relative border-t border-white border-solid mb-6 mx-6">
+    <div className='px-3 md:px-4 lg:px-6'>
+      <div className="relative border-t border-white border-solid mx-3 md:mx-4 lg:mb-4 mb-6 mx-6">
         <div className="bg-[#d9d9d9]/[0.2] p-4 rounded-[5px] shadow-md font-medium text-white mt-6 ">
           <div className="flex space-x-4 pb-4 items-center">
             <form className="flex flex-1">
               <input
                 ref={inputRef}
-                className={`${pierSans.className} text-white h-12 bg-transparent flex-grow focus:outline-none text-[32px]`}
+                className={`${pierSans.className} text-white h-12 bg-transparent flex-grow focus:outline-none text-[20px] md:text-[32px]`}
                 type="text"
                 placeholder="What's on your mind?"
               />
@@ -129,9 +129,9 @@ function InputBox() {
             </button>
 
             {imageToPost && (
-              <div className="flex flex-col filter hover:brightness-110 transition duration-150 transform hover:scale-105 cursor:pointer">
+              <div className=" w-100 h-200 cursor-pointer right-4 flex flex-col filter hover:brightness-110 transition duration-150 transform hover:scale-105 cursor:pointer">
                 <img
-                  className="h-10 object-contain "
+                  className="h-10 w-10 object-cover "
                   src={imageToPost}
                   alt="post-image"
                 />

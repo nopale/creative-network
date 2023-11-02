@@ -35,7 +35,7 @@ const Header = () => {
       </div>
 
       <div className="flex items-center sm:space-x-2 justify-end">
-        <div className="flex space-x-6 md:space-x-2 mr-2">
+        <div className="hidden md:flex space-x-6 md:space-x-2 mr-2">
           <EllipsisHorizontalIcon className="h-3 text-white text-center mx-auto mr-2 sm:h-7" />
           <PlusCircleIcon className="h-3 text-white text-center mx-auto mr-2 sm:h-7" />
           <RectangleGroupIcon className="h-3 text-white text-center mx-auto mr-4 sm:h-7" />
